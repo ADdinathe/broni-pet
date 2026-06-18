@@ -1,0 +1,10 @@
+venv
+.env
+.env-non-dev
+.env-render
+__pycache__
+.idea
+# *.ipynb*
+
+.pytest_cache/
+.helpers/
