@@ -1,4 +1,4 @@
-from typing import Literal
+from typing import Literal, Optional
 
 from pydantic import BaseSettings
 
@@ -23,11 +23,12 @@ class Settings(BaseSettings):
     def DATABASE_URL(self):
         return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
 
-    TEST_DB_HOST: str
-    TEST_DB_PORT: int
-    TEST_DB_USER: str
-    TEST_DB_PASS: str
-    TEST_DB_NAME: str
+    TEST_DB_HOST: Optional[str] = None
+    TEST_DB_PORT: Optional[int] = None
+    TEST_DB_USER: Optional[str] = None
+    TEST_DB_PASS: Optional[str] = None
+    TEST_DB_NAME: Optional[str] = None
+
 
     # @root_validator
     # def get_test_database_url(cls, v):
